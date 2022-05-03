@@ -1,9 +1,15 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import { AuthClient } from '@dfinity/auth-client'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [authClient, setAuthClient] = useState(async () => await AuthClient.create())
+
+  async function updateView() {
+    console.log("update view ")
+  }
 
   return (
     <div className="App">
@@ -14,6 +20,14 @@ function App() {
           <button type="button" onClick={() => setCount((count) => count + 1)}>
             count is: {count}
           </button>
+          <button type="button" onClick={() => authClient.then(async (ac) => {
+            console.log("btn");
+            console.log(ac);
+            await ac.login({
+              identityProvider: "https://identity.ic0.app/",
+              onSuccess: updateView
+            })
+          })}>Sign in</button>
         </p>
         <p>
           Edit <code>App.tsx</code> and save to test HMR updates.

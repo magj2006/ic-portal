@@ -9,6 +9,12 @@
     "build": "vite-tauri build"
   },
   "dependencies": {
+    "@dfinity/agent": "^0.10.2",
+    "@dfinity/auth-client": "^0.10.2",
+    "@dfinity/authentication": "^0.10.2",
+    "@dfinity/candid": "^0.10.2",
+    "@dfinity/identity": "^0.10.2",
+    "@dfinity/principal": "^0.10.2",
     "@tauri-apps/api": "^1.0.0-rc.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
